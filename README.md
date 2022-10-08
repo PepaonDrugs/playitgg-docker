@@ -11,9 +11,9 @@ docker run -d --name playit-docker -v playit-volume:/home/container pepaondrugs/
 ```
 Docker compose
 
+```bash
 version: "3"
 
-```bash
 services:
   playit-docker:
     container_name: "playit-docker"
