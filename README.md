@@ -22,8 +22,9 @@ services:
 ```
 
 If you want to claim the agent have a look at the log
-
+```bash
 docker logs playit-docker
+```
 ```bash
 link=https://playit.gg/claim/#######
 ```
