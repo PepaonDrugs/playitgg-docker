@@ -1,4 +1,4 @@
-#FROM aarch64/alpine:latest
+#FROM ubuntu:focal(20.0.4)
 FROM ubuntu:focal
 RUN mkdir /app
 WORKDIR '/app'
@@ -13,13 +13,7 @@ RUN . "$NVM_DIR/nvm.sh" && nvm install ${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm use v${NODE_VERSION}
 RUN . "$NVM_DIR/nvm.sh" && nvm alias default v${NODE_VERSION}
 ENV PATH="/root/.nvm/versions/node/v${NODE_VERSION}/bin/:${PATH}"
-#COPY playit-aarch64-0.4.6 /app
+#COPY playit-0.9.3 /app
 COPY . /app
-#RUN chmod a+x playit-aarch64-0.4.6
 RUN chmod 0755 /app/playit-0.9.3
 CMD /app/playit-0.9.3
-#CMD apk add --no-cache --update curl
-#CMD curl -L https://playit.gg/downloads/playit-aarch64-0.4.6 --output /playit-aarch64-0.4.6
-#CMD chmod +x /playit-aarch64-0.4.6
-#CMD [[ -f /playit-aarch64-0.4.6 ]] && echo "This file exists!"
-#CMD /playit-aarch64-0.4.6
