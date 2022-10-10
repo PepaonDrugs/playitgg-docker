@@ -2,7 +2,6 @@
 
 [playit.gg](https://playit.gg/) tunnel service in a Docker Image
 
-![Docker Pulls]
 
 
 ## Usage
