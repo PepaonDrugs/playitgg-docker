@@ -2,7 +2,7 @@
 
 [playit.gg](https://playit.gg/) tunnel service in a Docker Image
 
-
+https://img.shields.io/docker/pulls/pepaondrugs/playitgg-docker
 
 ## Usage
 
