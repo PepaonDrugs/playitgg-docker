@@ -13,7 +13,7 @@ docker run -d --name playit-docker -v playit-volume:/home/container pepaondrugs/
 ```
 Docker compose
 
-```bash
+```yaml
 version: "3"
 
 services:
