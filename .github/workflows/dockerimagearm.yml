@@ -12,7 +12,7 @@ on:
 jobs:
 
   build:
-    name: Build container
+    name: Build container -arm
     runs-on: ubuntu-latest
 
     steps:
