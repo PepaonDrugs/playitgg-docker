@@ -11,6 +11,13 @@ Docker
 ```bash
 docker run -d --name playit-docker pepaondrugs/playitgg-docker
 ```
+
+For arm please use
+```bash
+docker run -d --name playit-docker pepaondrugs/playitgg-docker:v0.9.3-arm   
+```
+
+
 Docker compose
 
 ```yaml
