@@ -32,7 +32,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     - name: Login to Docker Hub
-      uses: docker/login-action@v2
+      uses: docker/login-action@v1
       with: 
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
@@ -42,4 +42,4 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: pepaondrugs/pepaondrugs/playit-develop:latest,pepaondrugs/playit-develop:v0.9.3
+        tags: pepaondrugs/pepaondrugs/playit-develop:latest,pepaondrugs/playit-develop:0.9.3
