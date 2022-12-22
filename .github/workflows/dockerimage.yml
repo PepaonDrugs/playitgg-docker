@@ -43,4 +43,4 @@ jobs:
         platforms: linux/amd64,linux/arm64
         file: ./Dockerfile
         push: true
-        tags: pepaondrugs/pepaondrugs/playit-develop:latest,pepaondrugs/playit-develop:0.9.3
+        tags: pepaondrugs/playit-develop:latest,pepaondrugs/playit-develop:v0.9.3
