@@ -3,7 +3,7 @@ name: Build develop image
 on: 
   push:
       branches:
-      - 'develop'
+      - 'v.0.9.3'
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -23,9 +23,9 @@ jobs:
       with:
         user: ${{ secrets.DOCKER_USERNAME }}
         pass: ${{ secrets.DOCKER_PASSWORD }}
-        slug: pepaondrugs/playit-develop
+        slug: pepaondrugs/playit-docker
         readme: ./README.md
-        description: full docs at github
+        description: Playit.gg as a Dockerimage  code:https://github.com/PepaonDrugs/playitgg-docker
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
     - name: Set up Docker Buildx
@@ -42,4 +42,4 @@ jobs:
         platforms: linux/amd64,linux/ppc64le
         file: ./Dockerfile
         push: true
-        tags: pepaondrugs/playit-develop:latest,pepaondrugs/playit-develop:v0.9.3
+        tags: pepaondrugs/playit-docker:latest,pepaondrugs/playit-docker:v0.9.3
