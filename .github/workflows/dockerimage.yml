@@ -22,8 +22,8 @@ jobs:
     - name: Update Readme.md and description
       uses: meeDamian/sync-readme@v1.0.6
       with:
-        user: ${{ secrets.DOCKER_HUB_USERNAME }}
-        pass: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+        user: ${{ secrets.DOCKER_USERNAME }}
+        pass: ${{ secrets.DOCKER_PASSWORD }}
         slug: pepaondrugs/playit-develop
         readme: ./README.md
         description: playit.gg as a docker image
