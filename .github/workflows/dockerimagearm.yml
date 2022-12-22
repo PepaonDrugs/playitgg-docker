@@ -23,7 +23,7 @@ jobs:
       with:
         user: ${{ secrets.DOCKER_USERNAME }}
         pass: ${{ secrets.DOCKER_PASSWORD }}
-        slug: pepaondrugs/playit-docker
+        slug: pepaondrugs/playitgg-docker
         readme: ./README.md
         description: full docs at github
     - name: Set up QEMU
@@ -42,4 +42,4 @@ jobs:
         platforms: linux/arm64
         file: ./Dockerfile-arm
         push: true
-        tags: pepaondrugs/playit-docker:v0.9.3-arm
+        tags: pepaondrugs/playitgg-docker:v0.9.3-arm
