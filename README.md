@@ -9,7 +9,7 @@
 
 Docker 
 ```bash
-docker run -d --name playit-docker -v playit-volume:/home/container pepaondrugs/playitgg-docker
+docker run -d --name playit-docker pepaondrugs/playitgg-docker
 ```
 Docker compose
 
