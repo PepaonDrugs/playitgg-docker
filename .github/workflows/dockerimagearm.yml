@@ -3,7 +3,7 @@ name: Build develop image
 on: 
   push:
       branches:
-      - 'develop'
+      - 'v.0.9.3'
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -23,7 +23,7 @@ jobs:
       with:
         user: ${{ secrets.DOCKER_USERNAME }}
         pass: ${{ secrets.DOCKER_PASSWORD }}
-        slug: pepaondrugs/playit-develop
+        slug: pepaondrugs/playit-docker
         readme: ./README.md
         description: full docs at github
     - name: Set up QEMU
@@ -42,4 +42,4 @@ jobs:
         platforms: linux/arm64
         file: ./Dockerfile-arm
         push: true
-        tags: pepaondrugs/playit-develop:v0.9.3-arm
+        tags: pepaondrugs/playit-docker:v0.9.3-arm
