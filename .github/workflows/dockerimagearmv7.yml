@@ -39,7 +39,7 @@ jobs:
       uses: docker/build-push-action@v3
       with: 
         context: .
-        platforms: llinux/arm/v7
+        platforms: linux/arm/v7
         file: ./Dockerfile-armv7
         push: true
         tags: pepaondrugs/playitgg-docker:v0.9.3-armv7
