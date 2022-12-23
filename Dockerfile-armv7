@@ -1,5 +1,5 @@
 #FROM ubuntu/focal:latest
-FROM ubuntu:focal
+FROM ubuntu:bionic
 RUN mkdir /app
 WORKDIR '/app'
 RUN apt-get update
