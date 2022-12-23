@@ -1,4 +1,4 @@
-name: Build develop image arm
+name: Build develop image armv7
 
 on: 
   push:
