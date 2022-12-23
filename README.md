@@ -17,6 +17,12 @@ For arm please use
 docker run -d --name playit-docker pepaondrugs/playitgg-docker:v0.9.3-arm   
 ```
 
+For armv7 please use
+```bash
+docker run -d --name playit-docker pepaondrugs/playitgg-docker:v0.9.3-armv7   
+```
+
+
 
 Docker compose
 
