@@ -36,6 +36,19 @@ services:
     restart: unless-stopped
 ```
 
+Or Docker compose for arm
+
+```yaml
+version: "3"
+
+services:
+  playit-docker:
+    container_name: "playit-docker"
+    image: pepaondrugs/playitgg-docker:v0.9.3-arm
+    restart: unless-stopped
+```
+
+
 If you want to claim the agent have a look at the log
 ```bash
 docker logs playit-docker
