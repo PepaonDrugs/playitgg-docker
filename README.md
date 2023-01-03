@@ -8,21 +8,21 @@
 
 
 Docker 
-```bash
+```yaml
 docker run -d \
   --name playit-docker \
   pepaondrugs/playitgg-docker:latest
 ```
 
 For arm please use
-```bash
+```yaml
 docker run -d \
   --name playit-docker \
   pepaondrugs/playitgg-docker:v0.9.3-arm
 ```
 
 For armv7 please use
-```bash
+```yaml
 docker run -d \
   --name playit-docker \
   pepaondrugs/playitgg-docker:v0.9.3-armv7   
