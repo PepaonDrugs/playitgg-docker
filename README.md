@@ -62,3 +62,12 @@ docker logs playit-docker
 ```bash
 link=https://playit.gg/claim/#######
 ```
+if you like to store your config.yml betwene up and downgrades attach a volume to /app
+
+example
+```bash
+docker run -d \
+  --name playit-docker \
+  -v playit-volume:/app
+  pepaondrugs/playitgg-docker:latest
+```
