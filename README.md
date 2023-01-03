@@ -65,7 +65,7 @@ link=https://playit.gg/claim/#######
 if you like to store your playit config between up and downgrades attach a volume to /app
 
 example
-```bash
+```yaml
 docker run -d \
   --name playit-docker \
   -v playit-volume:/app \
