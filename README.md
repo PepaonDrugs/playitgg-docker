@@ -62,7 +62,7 @@ docker logs playit-docker
 ```bash
 link=https://playit.gg/claim/#######
 ```
-if you like to store your config.yml betwene up and downgrades attach a volume to /app
+if you like to store your playit config between up and downgrades attach a volume to /app
 
 example
 ```bash
