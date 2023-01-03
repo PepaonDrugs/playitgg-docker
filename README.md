@@ -68,6 +68,6 @@ example
 ```bash
 docker run -d \
   --name playit-docker \
-  -v playit-volume:/app
+  -v playit-volume:/app \
   pepaondrugs/playitgg-docker:latest
 ```
