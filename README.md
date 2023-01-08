@@ -11,6 +11,7 @@ Docker
 ```yaml
 docker run -d \
   --name playit-docker \
+  -v playit-volume:/app \
   pepaondrugs/playitgg-docker:latest
 ```
 
@@ -18,6 +19,7 @@ For arm please use
 ```yaml
 docker run -d \
   --name playit-docker \
+  -v playit-volume:/app \
   pepaondrugs/playitgg-docker:v0.9.3-arm
 ```
 
@@ -25,6 +27,7 @@ For armv7 please use
 ```yaml
 docker run -d \
   --name playit-docker \
+  -v playit-volume:/app \
   pepaondrugs/playitgg-docker:v0.9.3-armv7   
 ```
 
@@ -39,6 +42,8 @@ services:
   playit-docker:
     container_name: "playit-docker"
     image: pepaondrugs/playitgg-docker:latest
+    volumes: 
+      - playit-volume:/app
     restart: unless-stopped
 ```
 
@@ -51,6 +56,8 @@ services:
   playit-docker:
     container_name: "playit-docker"
     image: pepaondrugs/playitgg-docker:v0.9.3-arm
+    volumes: 
+      - playit-volume:/app
     restart: unless-stopped
 ```
 
@@ -61,13 +68,4 @@ docker logs playit-docker
 ```
 ```bash
 link=https://playit.gg/claim/#######
-```
-if you like to store your playit config between up and downgrades attach a volume to /app
-
-example
-```yaml
-docker run -d \
-  --name playit-docker \
-  -v playit-volume:/app \
-  pepaondrugs/playitgg-docker:latest
 ```
