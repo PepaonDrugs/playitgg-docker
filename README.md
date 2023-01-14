@@ -42,9 +42,13 @@ services:
   playit-docker:
     container_name: "playit-docker"
     image: pepaondrugs/playitgg-docker:latest
-    volumes: 
-      - playit-volume:/app
+    volumes:
+        - playit-volume:/app
     restart: unless-stopped
+volumes:
+    playit-volume:
+        external: false
+
 ```
 
 Or Docker compose for arm
@@ -56,9 +60,12 @@ services:
   playit-docker:
     container_name: "playit-docker"
     image: pepaondrugs/playitgg-docker:v0.9.3-arm
-    volumes: 
-      - playit-volume:/app
+    volumes:
+        - playit-volume:/app
     restart: unless-stopped
+volumes:
+    playit-volume:
+        external: false
 ```
 
 
