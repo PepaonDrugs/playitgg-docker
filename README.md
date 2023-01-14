@@ -76,3 +76,5 @@ docker logs playit-docker
 ```bash
 link=https://playit.gg/claim/#######
 ```
+
+If anything doesnt work dont hesitate to open a issue
