@@ -1,6 +1,6 @@
-# playit.gg Docker image
+# Playit Docker image
 
-[playit.gg](https://playit.gg/) tunnel service in a Docker Image
+[Playit](https://playit.gg/) tunnel service in a Docker Image
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/pepaondrugs/playitgg-docker)
 
