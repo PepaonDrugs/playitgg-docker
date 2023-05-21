@@ -68,6 +68,23 @@ volumes:
         external: false
 ```
 
+Or Docker compose for armv7 so 32bit
+
+
+```yaml
+version: "3"
+
+services:
+  playit-docker:
+    container_name: "playit-docker"
+    image: pepaondrugs/playitgg-docker:v0.9.3-armv7
+    volumes:
+        - playit-volume:/app
+    restart: unless-stopped
+volumes:
+    playit-volume:
+        external: false
+```
 
 If you want to claim the agent have a look at the log
 ```bash
