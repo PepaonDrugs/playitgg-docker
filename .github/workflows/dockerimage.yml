@@ -39,4 +39,4 @@ jobs:
         platforms: linux/amd64,linux/ppc64le
         file: ./Dockerfile
         push: true
-        tags: pepaondrugs/playitgg-docker:dev
+        tags: pepaondrugs/playit-develop:dev
