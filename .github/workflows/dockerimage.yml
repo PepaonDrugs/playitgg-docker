@@ -1,9 +1,8 @@
 name: Build develop image
 
-on: 
-  push:
-      branches:
-      - 'v0.10.1'
+on:
+  release:
+    types: [published]
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -42,4 +41,4 @@ jobs:
         platforms: linux/amd64,linux/ppc64le
         file: ./Dockerfile
         push: true
-        tags: pepaondrugs/playitgg-docker:latest,pepaondrugs/playitgg-docker:v0.9.3
+        tags: pepaondrugs/playitgg-docker:latest,pepaondrugs/playitgg-docker:v0.10.1
