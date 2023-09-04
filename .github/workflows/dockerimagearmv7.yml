@@ -1,9 +1,8 @@
 name: Build develop image armv7
 
-on: 
-  push:
-      branches:
-      - 'v0.10.1'
+on:
+  release:
+    types: [published]
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -42,4 +41,4 @@ jobs:
         platforms: linux/arm/v7
         file: ./Dockerfile-armv7
         push: true
-        tags: pepaondrugs/playitgg-docker:v0.9.3-armv7
+        tags: pepaondrugs/playitgg-docker:v0.10.1-armv7
