@@ -1,9 +1,8 @@
 name: Build develop image arm
 
-on: 
-  push:
-      branches:
-      - 'v0.10.1'
+on:
+  release:
+    types: [published]
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -42,4 +41,4 @@ jobs:
         platforms: linux/arm64
         file: ./Dockerfile-arm
         push: true
-        tags: pepaondrugs/playitgg-docker:v0.9.3-arm
+        tags: pepaondrugs/playitgg-docker:v0.10.1-arm
