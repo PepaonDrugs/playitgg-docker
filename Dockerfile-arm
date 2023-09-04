@@ -5,9 +5,8 @@ WORKDIR '/app'
 RUN apt-get update
 RUN apt-get install ca-certificates -y
 RUN update-ca-certificates
-# Install Nodejs
-#COPY playit-aarch64 /app
-COPY . /app
+
+COPY playit-aarch64 /app
 #RUN chmod a+x playit-aarch64
 RUN chmod 0755 /app/playit-aarch64
 CMD /app/playit-aarch64
