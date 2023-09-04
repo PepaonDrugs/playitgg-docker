@@ -10,5 +10,5 @@ RUN update-ca-certificates
 COPY . /app
 #RUN chmod a+x playit-0.9.3
 RUN chmod 0755 /app/playit-x64
-CMD /app/playit-x64
-CMD ["/app/playit-x64"]
+CMD ./app/playit-x64
+CMD ["./app/playit-x64"]
