@@ -5,9 +5,9 @@ WORKDIR '/app'
 RUN apt-get update
 RUN apt-get install ca-certificates -y
 RUN update-ca-certificates
-# Install Nodejs
-#COPY playit-armv7 /app
-COPY . /app
+
+
+COPY playit-armv7 /app
 #RUN chmod a+x playit-armv7
 RUN chmod 0755 /app/playit-armv7
 CMD /app/playit-armv7
