@@ -3,7 +3,7 @@ name: Build develop image armv7
 on: 
   push:
       branches:
-      - 'v.0.9.3'
+      - 'v0.10.1'
 
 
   # Allows you to run this workflow manually from the Actions tab
