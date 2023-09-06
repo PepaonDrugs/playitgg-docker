@@ -6,4 +6,4 @@ RUN apt-get install ca-certificates -y
 RUN update-ca-certificates
 COPY . /app
 RUN chmod 0755 /app/playit-x64
-RUN /app/playit-x64
+ENTRYPOINT ["/app/playit-x64"] 
