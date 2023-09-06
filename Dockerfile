@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:jammy
 RUN mkdir /app
 WORKDIR /app
 RUN apt-get update
