@@ -12,5 +12,7 @@ RUN apt-get update
 
 
 
-RUN apt-get install playit -y
+# Install the Playit package
+RUN apt-get update && \
+    apt-get install -y playit
 CMD playit
