@@ -6,5 +6,5 @@ RUN curl -SsL https://playit-cloud.github.io/ppa/key.gpg | apt-key add - && curl
 RUN apt-get update
 
 
-RUN apt-get install playit
+RUN apt-get install playit -y
 CMD playit
