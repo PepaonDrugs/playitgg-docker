@@ -1,7 +1,7 @@
-FROM ubuntu:jammy
+FROM ubuntu:focal
 
-RUN apt-get update
-RUN apt-get install curl gnupg
+
+RUN apt-get update && apt-get install -y curl gnupg
 
 RUN apt-get install ca-certificates -y
 RUN update-ca-certificates
