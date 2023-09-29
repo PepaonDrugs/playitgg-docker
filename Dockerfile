@@ -11,4 +11,4 @@ COPY . /app
 RUN chmod 0755 /app/playit-x64
 
 CMD chmod 0755 /app/playit-x64
-CMD run_playit.sh
+CMD /app/run_playit.sh
