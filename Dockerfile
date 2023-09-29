@@ -6,7 +6,7 @@ RUN apt-get install ca-certificates -y
 RUN update-ca-certificates
 
 
-COPY . /app
+COPY playit-x64 /app
 
 RUN chmod 0755 /app/playit-x64
 CMD /app/playit-x64 | tee /app/playit-log.txt
