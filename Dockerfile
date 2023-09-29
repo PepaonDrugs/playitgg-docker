@@ -6,7 +6,7 @@ RUN apt-get install ca-certificates -y
 RUN update-ca-certificates
 
 
-COPY playit-x64 /app
+COPY . /app
 
 RUN chmod 0755 /app/playit-x64
 
