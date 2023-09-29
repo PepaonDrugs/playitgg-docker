@@ -4,4 +4,5 @@
 cd /app
 
 # Execute playit-x64
-./playit-x64 | tee /app/playit-log.txt
+./playit-x64 | tee /app/playit-log.txt | cat
+
