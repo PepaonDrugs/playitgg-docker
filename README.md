@@ -6,6 +6,14 @@
 
 ## Usage
 
+v0.15.2 has a diffrent gui so you have to login once with the console yourself to use it
+
+```bash
+docker exec -it playit-docker bash
+
+
+./playit-x64
+```
 
 Docker 
 ```yaml
