@@ -6,7 +6,7 @@
 
 ## Usage
 
-###v0.15.2 has a diffrent gui so you have to login the first time with the console to use it
+### v0.15.2 has a diffrent gui so you have to login the first time with the console to use it
 
 ```bash
 docker exec -it playit-docker bash
