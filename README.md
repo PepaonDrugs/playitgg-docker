@@ -10,8 +10,8 @@ v0.15.2 has a diffrent gui so you have to login once with the console yourself t
 
 ```bash
 docker exec -it playit-docker bash
-
-
+```
+```bash
 ./playit-x64
 ```
 
