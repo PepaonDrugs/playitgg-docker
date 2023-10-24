@@ -12,4 +12,4 @@ RUN chmod 0755 /app/playit-x64
 
 
 CMD chmod 0755 /app/playit-x64
-CMD /app/playit-x64
+CMD /app/playit-x64 -s
