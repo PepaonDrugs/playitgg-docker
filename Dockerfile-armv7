@@ -8,6 +8,7 @@ RUN update-ca-certificates
 
 
 COPY playit-armv7 /app
-#RUN chmod a+x playit-armv7
+
+
 RUN chmod 0755 /app/playit-armv7
 CMD /app/playit-armv7 -s
