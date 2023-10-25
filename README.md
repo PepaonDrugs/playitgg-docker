@@ -29,7 +29,7 @@ For arm please use
 docker run -d \
   --name playit-docker \
   -v playit-volume:/app \
-  pepaondrugs/playitgg-docker:v0.9.3-arm
+  pepaondrugs/playitgg-docker:v0.15.9-arm
 ```
 
 For armv7 please use
@@ -37,7 +37,7 @@ For armv7 please use
 docker run -d \
   --name playit-docker \
   -v playit-volume:/app \
-  pepaondrugs/playitgg-docker:v0.9.3-armv7   
+  pepaondrugs/playitgg-docker:v0.15.9-armv7   
 ```
 
 
@@ -68,7 +68,7 @@ version: "3"
 services:
   playit-docker:
     container_name: "playit-docker"
-    image: pepaondrugs/playitgg-docker:v0.9.3-arm
+    image: pepaondrugs/playitgg-docker:v0.15.9-arm
     volumes:
         - playit-volume:/app
     restart: unless-stopped
@@ -86,7 +86,7 @@ version: "3"
 services:
   playit-docker:
     container_name: "playit-docker"
-    image: pepaondrugs/playitgg-docker:v0.9.3-armv7
+    image: pepaondrugs/playitgg-docker:v0.15.9-armv7
     volumes:
         - playit-volume:/app
     restart: unless-stopped
