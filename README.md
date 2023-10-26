@@ -6,15 +6,7 @@
 
 ## Usage
 
-### v0.15.2 has a diffrent gui so you have to login the first time with the console to use it
 
-```bash
-docker exec -it playit-docker bash
-```
-Please not for arm and armv7 bit you may need to use playit-armv7 or playit-aarch64
-```bash
-./playit-x64
-```
 
 Docker 
 ```yaml
