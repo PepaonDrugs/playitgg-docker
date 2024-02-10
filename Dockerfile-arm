@@ -1,15 +1,13 @@
-#FROM ubuntu/focal:latest
 FROM ubuntu:focal
 RUN mkdir /app
 WORKDIR '/app'
 RUN apt-get update
-RUN apt-get install ca-certificates -y
+RUN apt-get install ca-certificates -y wget
 RUN update-ca-certificates
 
+RUN wget https://github.com/playit-cloud/playit-agent/releases/download/v0.15.12/playit-linux-aarch64 /app/playit-linux-aarch64
 
+RUN chmod 0755 /app/playit-linux-aarch64
 
-COPY playit-aarch64 /app
-
-
-RUN chmod 0755 /app/playit-aarch64
-CMD /app/playit-aarch64 -s
+CMD chmod 0755 /app/playit-linux-aarch64
+CMD /app/playit-linux-aarch64 -s
