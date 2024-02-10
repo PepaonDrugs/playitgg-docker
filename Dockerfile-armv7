@@ -2,10 +2,10 @@ FROM ubuntu:focal
 RUN mkdir /app
 WORKDIR '/app'
 RUN apt-get update
-RUN apt-get install ca-certificates -y wget
+RUN apt-get install ca-certificates -y curl
 RUN update-ca-certificates
 
-RUN wget https://github.com/playit-cloud/playit-agent/releases/download/v0.15.12/playit-linux-armv7 -O /app/playit-linux-armv7
+RUN curl https://github.com/playit-cloud/playit-agent/releases/download/v0.15.12/playit-linux-armv7 -o /app/playit-linux-armv7
 
 RUN chmod 0755 /app/playit-linux-armv7
 
