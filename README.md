@@ -18,7 +18,7 @@ docker run -d \
   pepaondrugs/playitgg-docker:latest
 ```
 
-### 🐧 Architecture-Specific Images
+###  Architecture-Specific Images
 
 * **ARM (64-bit):**
 
