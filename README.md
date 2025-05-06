@@ -1,102 +1,94 @@
-# Playit Docker image
+#  Playit Docker Image
 
-[Playit](https://playit.gg/) tunnel service in a Docker Image
+Docker image for the [Playit](https://playit.gg/) tunnel service.
 
 ![Docker Pulls](https://img.shields.io/docker/pulls/pepaondrugs/playitgg-docker)
 
-## Usage
+---
 
+##  Usage
 
+###  Basic Docker Run
 
-Docker 
-```yaml
+```bash
 docker run -d \
   --name playit-docker \
   -v playit-volume:/secret \
+  --restart unless-stopped \
   pepaondrugs/playitgg-docker:latest
 ```
 
-for arm please use
-```yaml
-docker run -d \
-  --name playit-docker \
-  -v playit-volume:/secret \
-  pepaondrugs/playitgg-docker:arm
-```
+### 🐧 Architecture-Specific Images
 
-for armv7 please use
-```yaml
-docker run -d \
-  --name playit-docker \
-  -v playit-volume:/secret \
-  pepaondrugs/playitgg-docker:armv7   
-```
+* **ARM (64-bit):**
 
-If you wanted to change the user and/or group, you will need to use an arg
-```yaml
+  ```bash
+  docker run -d \
+    --name playit-docker \
+    -v playit-volume:/secret \
+    --restart unless-stopped \
+    pepaondrugs/playitgg-docker:arm
+  ```
+
+* **ARMv7 (32-bit):**
+
+  ```bash
+  docker run -d \
+    --name playit-docker \
+    -v playit-volume:/secret \
+    --restart unless-stopped \
+    pepaondrugs/playitgg-docker:armv7
+  ```
+
+### 👤 Custom User / Group
+
+If you need to run the container as a specific user and group:
+
+```bash
 docker run -d \
   --name playit-docker \
   -v playit-volume:/secret \
+  --restart unless-stopped \
   --build-arg="PLAYIT_USER_UID=1000" \
   --build-arg="PLAYIT_USER_GID=1000" \
-  pepaondrugs/playitgg-docker:latest   
+  pepaondrugs/playitgg-docker:latest
 ```
 
-Docker compose
+---
+
+##  Docker Compose
+
+### Default
 
 ```yaml
 version: "3"
 
 services:
   playit-docker:
-    container_name: "playit-docker"
+    container_name: playit-docker
     image: pepaondrugs/playitgg-docker:latest
     volumes:
-        - playit-volume:/secret
+      - playit-volume:/secret
     restart: unless-stopped
+
 volumes:
-    playit-volume:
-        external: false
+  playit-volume:
+    external: false
 ```
 
-Or Docker compose for arm
+### For ARM (64-bit)
 
 ```yaml
-version: "3"
-
-services:
-  playit-docker:
-    container_name: "playit-docker"
-    image: pepaondrugs/playitgg-docker:arm
-    volumes:
-        - playit-volume:/secret
-    restart: unless-stopped
-volumes:
-    playit-volume:
-        external: false
+image: pepaondrugs/playitgg-docker:arm
 ```
 
-Or Docker compose for armv7 so 32bit
-
+### For ARMv7 (32-bit)
 
 ```yaml
-version: "3"
-
-services:
-  playit-docker:
-    container_name: "playit-docker"
-    image: pepaondrugs/playitgg-docker:armv7
-    volumes:
-        - playit-volume:/secret
-    restart: unless-stopped
-volumes:
-    playit-volume:
-        external: false
+image: pepaondrugs/playitgg-docker:armv7
 ```
 
-
-Docker Compose to change the user and/or group
-
+### Custom User / Group (Compose Build)
 
 ```yaml
 version: "3"
@@ -107,22 +99,36 @@ services:
       args:
         PLAYIT_USER_UID: 1000
         PLAYIT_USER_GID: 1000
-    container_name: "playit-docker"
+    container_name: playit-docker
     image: pepaondrugs/playitgg-docker:latest
     volumes:
-        - playit-volume:/secret
+      - playit-volume:/secret
     restart: unless-stopped
+
 volumes:
-    playit-volume:
-        external: false
+  playit-volume:
+    external: false
 ```
 
-If you want to claim the agent have a look at the log
+---
+
+##  Claiming the Agent
+
+Check the logs to find your agent claim link:
+
 ```bash
 docker logs playit-docker
 ```
+
+Look for:
+
 ```bash
 link=https://playit.gg/claim/#######
 ```
 
-If anything doesnt work dont hesitate to open a issue
+---
+
+## 🛠️ Troubleshooting
+
+If anything doesn't work, feel free to [open an issue](https://github.com/PepaonDrugs/playitgg-docker/issues).
+
