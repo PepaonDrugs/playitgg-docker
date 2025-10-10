@@ -3,7 +3,11 @@ name: Check for New Playit Release
 on:
   schedule:
     - cron: "0 * * * *" # every hour
-  workflow_dispatch:     # manual trigger
+
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 
 jobs:
   check:
