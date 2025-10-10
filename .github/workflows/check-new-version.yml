@@ -2,7 +2,7 @@ name: Check for New Playit Release
 
 on:
   schedule:
-    - cron: "0 * * * *" # every hour
+    - cron: "0 * * * *"
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,9 @@ jobs:
           echo "latest=$LATEST" >> $GITHUB_OUTPUT
 
       - name: Print latest version
-        run: echo "Latest Playit release found: ${{ steps.get_release.outputs.latest }}"
+        run: |
+          echo "Latest Playit release found: ${{ steps.get_release.outputs.latest }}"
+
 
       - name: Check if Docker image already exists
         id: check_dockerhub
