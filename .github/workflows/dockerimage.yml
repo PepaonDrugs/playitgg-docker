@@ -23,7 +23,7 @@ jobs:
         pass: ${{ secrets.DOCKER_PASSWORD }}
         slug: pepaondrugs/playitgg-docker
         readme: ./README.md
-        description: Playit.gg as a Docker image — code: https://github.com/PepaonDrugs/playitgg-docker
+        description: Playit.gg as a Docker image — code:https://github.com/PepaonDrugs/playitgg-docker
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
@@ -49,3 +49,4 @@ jobs:
         tags: |
           pepaondrugs/playitgg-docker:${{ github.event.inputs.playit_version }}
           pepaondrugs/playitgg-docker:latest
+
