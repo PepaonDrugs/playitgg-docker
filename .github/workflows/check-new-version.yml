@@ -38,5 +38,4 @@ jobs:
         with:
           workflow: dockerimage.yml
           ref: main
-          inputs: |
-            playit_version=${{ steps.get_release.outputs.latest }}
+          inputs: '{"playit_version": "${{ steps.get_release.outputs.latest }}"}'
