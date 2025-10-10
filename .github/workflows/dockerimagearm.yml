@@ -29,10 +29,13 @@ jobs:
           IMAGE="pepaondrugs/playitgg-docker"
           VERSION="${{ steps.get_release.outputs.latest }}"
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://hub.docker.com/v2/repositories/$IMAGE/tags/$VERSION/")
+          
           if [ "$STATUS" -eq 200 ]; then
-            echo "needs_build=false" >> $GITHUB_OUTPUT
+            echo "needs_build=false" >> "$GITHUB_OUTPUT"
           else
-            echo "needs_build=true" >> $GITHUB_OUTPUT
+            echo "needs_build=true" >> "$GITHUB_OUTPUT"
+          fi
+
 
 
       - name: Stop if already built
@@ -67,5 +70,6 @@ jobs:
           tags: |
             pepaondrugs/playitgg-docker:${{ steps.get_release.outputs.latest }}
             pepaondrugs/playitgg-docker:latest
+
 
 
