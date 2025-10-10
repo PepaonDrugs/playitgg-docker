@@ -1,52 +1,68 @@
-name: Build Playit Docker Image
+name: Check and Build Playit Docker Image
 
 on:
-  workflow_dispatch:
-    inputs:
-      playit_version:
-        description: "Playit version to build (e.g., v0.16.2)"
-        required: true
+  schedule:
+    - cron: "0 * * * *" # every hour
+  workflow_dispatch:     # manual trigger
 
 jobs:
   build:
-    name: Build container
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Update Readme.md and description
-      uses: meeDamian/sync-readme@v1.0.6
-      with:
-        user: ${{ secrets.DOCKER_USERNAME }}
-        pass: ${{ secrets.DOCKER_PASSWORD }}
-        slug: pepaondrugs/playitgg-docker
-        readme: ./README.md
-        description: Playit.gg as a Docker image — code:https://github.com/PepaonDrugs/playitgg-docker
+      - name: Get latest Playit release version
+        id: get_release
+        run: |
+          LATEST=$(curl -s https://api.github.com/repos/playit-cloud/playit-agent/releases/latest | jq -r .tag_name)
+          echo "latest=$LATEST" >> $GITHUB_OUTPUT
 
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v2
+      - name: Print latest version
+        run: |
+          echo "Latest Playit release found: ${{ steps.get_release.outputs.latest }}"
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v2
+      - name: Determine if build is needed
+        id: check_dockerhub
+        run: |
+          IMAGE="pepaondrugs/playitgg-docker"
+          VERSION="${{ steps.get_release.outputs.latest }}"
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://hub.docker.com/v2/repositories/$IMAGE/tags/$VERSION/")
+          if [ "$STATUS" -eq 200 ]; then
+            echo "needs_build=false" >> $GITHUB_OUTPUT
+          else
+            echo "needs_build=true" >> $GITHUB_OUTPUT
 
-    - name: Login to Docker Hub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Stop if already built
+        if: ${{ steps.check_dockerhub.outputs.needs_build == 'false' }}
+        run: echo "Docker image already exists — skipping build."
 
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v3
-      with:
-        context: .
-        platforms: linux/amd64,linux/ppc64le
-        file: ./Dockerfile
-        push: true
-        build-args: |
-          PLAYIT_VERSION=${{ github.event.inputs.playit_version }}
-        tags: |
-          pepaondrugs/playitgg-docker:${{ github.event.inputs.playit_version }}
-          pepaondrugs/playitgg-docker:latest
+      - name: Set up QEMU
+        if: ${{ steps.check_dockerhub.outputs.needs_build == 'true' }}
+        uses: docker/setup-qemu-action@v2
 
+      - name: Set up Docker Buildx
+        if: ${{ steps.check_dockerhub.outputs.needs_build == 'true' }}
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Docker Hub
+        if: ${{ steps.check_dockerhub.outputs.needs_build == 'true' }}
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Docker image
+        if: ${{ steps.check_dockerhub.outputs.needs_build == 'true' }}
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          platforms: linux/amd64,linux/ppc64le
+          file: ./Dockerfile
+          push: true
+          build-args: |
+            PLAYIT_VERSION=${{ steps.get_release.outputs.latest }}
+          tags: |
+            pepaondrugs/playitgg-docker:${{ steps.get_release.outputs.latest }}
+            pepaondrugs/playitgg-docker:latest
