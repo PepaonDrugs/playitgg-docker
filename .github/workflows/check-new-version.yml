@@ -40,21 +40,3 @@ jobs:
           ref: main
           inputs: |
             playit_version=${{ steps.get_release.outputs.latest }}
-
-      - name: Trigger ARM64 build
-        if: steps.check_dockerhub.outputs.needs_build == 'true'
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: dockerimagearm.yml
-          ref: main
-          inputs: |
-            playit_version=${{ steps.get_release.outputs.latest }}
-
-      - name: Trigger ARMv7 build
-        if: steps.check_dockerhub.outputs.needs_build == 'true'
-        uses: benc-uk/workflow-dispatch@v1
-        with:
-          workflow: dockerimagearmv7.yml
-          ref: main
-          inputs: |
-            playit_version=${{ steps.get_release.outputs.latest }}
