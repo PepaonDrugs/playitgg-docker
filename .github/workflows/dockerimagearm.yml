@@ -1,4 +1,4 @@
-name: Check and Build Playit Docker Image 2
+name: Check and Build Playit Docker Image Arm
 
 on:
   schedule:
@@ -63,13 +63,10 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/ppc64le
-          file: ./Dockerfile
+          file: ./Dockerfile-arm
           push: true
           build-args: |
             PLAYIT_VERSION=${{ steps.get_release.outputs.latest }}
           tags: |
-            pepaondrugs/playitgg-docker:${{ steps.get_release.outputs.latest }}
-            pepaondrugs/playitgg-docker:latest
-
-
-
+            pepaondrugs/playitgg-docker:${{ steps.get_release.outputs.latest }}-arm
+            pepaondrugs/playitgg-docker:arm
