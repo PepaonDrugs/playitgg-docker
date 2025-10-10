@@ -1,4 +1,4 @@
-name: Check and Build Playit Docker Image
+name: Check and Build Playit Docker Image 2
 
 on:
   schedule:
@@ -66,3 +66,4 @@ jobs:
           tags: |
             pepaondrugs/playitgg-docker:${{ steps.get_release.outputs.latest }}
             pepaondrugs/playitgg-docker:latest
+
