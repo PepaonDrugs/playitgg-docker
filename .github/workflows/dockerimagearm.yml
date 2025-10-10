@@ -27,7 +27,7 @@ jobs:
         id: check_dockerhub
         run: |
           IMAGE="pepaondrugs/playitgg-docker"
-          VERSION="${{ steps.get_release.outputs.latest }}"
+          VERSION="${{ steps.get_release.outputs.latest }}-arm"
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" "https://hub.docker.com/v2/repositories/$IMAGE/tags/$VERSION/")
           
           if [ "$STATUS" -eq 200 ]; then
@@ -70,3 +70,4 @@ jobs:
           tags: |
             pepaondrugs/playitgg-docker:${{ steps.get_release.outputs.latest }}-arm
             pepaondrugs/playitgg-docker:arm
+
