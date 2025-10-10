@@ -16,6 +16,9 @@ jobs:
           LATEST=$(curl -s https://api.github.com/repos/playit-cloud/playit-agent/releases/latest | jq -r .tag_name)
           echo "latest=$LATEST" >> $GITHUB_OUTPUT
 
+      - name: Print latest version
+        run: echo "Latest Playit release found: ${{ steps.get_release.outputs.latest }}"
+
       - name: Check if Docker image already exists
         id: check_dockerhub
         run: |
