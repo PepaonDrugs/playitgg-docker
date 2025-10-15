@@ -127,6 +127,13 @@ link=https://playit.gg/claim/#######
 ```
 
 ---
+## TODO:
+
+- [ ] Move to Alpine or Distroless for optimized image
+
+
+
+---
 
 ## 🛠️ Troubleshooting
 
