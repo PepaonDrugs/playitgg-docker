@@ -129,7 +129,7 @@ link=https://playit.gg/claim/#######
 ---
 ## TODO:
 
-- [ ] Move to Alpine or Distroless for optimized image
+- [ ] Move ARM and ARMv7 Builds to Alpine
 
 
 
