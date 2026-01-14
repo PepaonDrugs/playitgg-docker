@@ -6,6 +6,14 @@ Docker image for the [Playit](https://playit.gg/) tunnel service.
 
 ---
 
+# Note!
+
+If you updated to v0.17.1 or later, please update your Docker volume to point to `/root` **in the container**.  
+This is where the persistent Playit secret is stored.  
+Otherwise, you may need to reauthenticate between updates.
+
+
+
 ##  Usage
 
 ###  Basic Docker Run
@@ -13,7 +21,7 @@ Docker image for the [Playit](https://playit.gg/) tunnel service.
 ```bash
 docker run -d \
   --name playit-docker \
-  -v playit-volume:/secret \
+  -v playit-volume:/root \
   --restart unless-stopped \
   pepaondrugs/playitgg-docker:latest
 ```
@@ -25,7 +33,7 @@ docker run -d \
   ```bash
   docker run -d \
     --name playit-docker \
-    -v playit-volume:/secret \
+    -v playit-volume:/root \
     --restart unless-stopped \
     pepaondrugs/playitgg-docker:arm
   ```
@@ -35,24 +43,10 @@ docker run -d \
   ```bash
   docker run -d \
     --name playit-docker \
-    -v playit-volume:/secret \
+    -v playit-volume:/root \
     --restart unless-stopped \
     pepaondrugs/playitgg-docker:armv7
   ```
-
-### 👤 Custom User / Group
-
-If you need to run the container as a specific user and group:
-
-```bash
-docker run -d \
-  --name playit-docker \
-  -v playit-volume:/secret \
-  --restart unless-stopped \
-  --build-arg="PLAYIT_USER_UID=1000" \
-  --build-arg="PLAYIT_USER_GID=1000" \
-  pepaondrugs/playitgg-docker:latest
-```
 
 ---
 
@@ -68,7 +62,7 @@ services:
     container_name: playit-docker
     image: pepaondrugs/playitgg-docker:latest
     volumes:
-      - playit-volume:/secret
+      - playit-volume:/root
     restart: unless-stopped
 
 volumes:
@@ -86,28 +80,6 @@ image: pepaondrugs/playitgg-docker:arm
 
 ```yaml
 image: pepaondrugs/playitgg-docker:armv7
-```
-
-### Custom User / Group (Compose Build)
-
-```yaml
-version: "3"
-
-services:
-  playit-docker:
-    build:
-      args:
-        PLAYIT_USER_UID: 1000
-        PLAYIT_USER_GID: 1000
-    container_name: playit-docker
-    image: pepaondrugs/playitgg-docker:latest
-    volumes:
-      - playit-volume:/secret
-    restart: unless-stopped
-
-volumes:
-  playit-volume:
-    external: false
 ```
 
 ---
@@ -129,7 +101,7 @@ link=https://playit.gg/claim/#######
 ---
 ## TODO:
 
-- [ ] Move ARM and ARMv7 Builds to Alpine
+- Create an issue for suggestions
 
 
 
